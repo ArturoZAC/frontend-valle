@@ -1,5 +1,9 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
+import { LeftSide } from "./components/LeftSide";
+import { useContext } from "react";
+import AuthContext from "../../../../context/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 interface User {
   email: string;
@@ -7,18 +11,28 @@ interface User {
 }
 
 export const LoginPage = () => {
+  const navigate = useNavigate();
+
+  const { login } = useContext(AuthContext);
+
   const loginSchema = Yup.object().shape({
     email: Yup.string().email("Email invalido").required("Email Requerido"),
     password: Yup.string().required("Password Requerido"),
   });
 
-  const handleLogin = (values: User) => {
-    console.log({ values });
+  const handleLogin = async (values: User) => {
+    await login(values.email, values.password);
+
+    // console.log(hasAccess);
+
+    // if( !hasAccess )
+
+    navigate("/admin");
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center">
-      <div className="bg-[#172617] purple-600 w-1/2 flex flex-col justify-center items-center min-h-screen">
+    <>
+      <div className="bg-[#172617]  w-1/2 flex flex-col justify-center items-center min-h-screen">
         <div className="bg-[#253725] p-10 rounded-md border-[#3A532D] border flex flex-col gap-y-5">
           <div className="flex flex-col">
             <p className="text-3xl font-bold text-[#8BC34B]">Iniciar Sesion</p>
@@ -39,7 +53,7 @@ export const LoginPage = () => {
                     <label>Usuario</label>
                     <Field
                       name="email"
-                      className="bg-[#304130] outline- border border-[#3A532D] rounded-md py-1.5 px-2 min-w-[400px] outline-none focus:outline focus:outline-2 focus:outline-[#80B546] focus:transition-all focus:duration-300"
+                      className="bg-[#304130] outline- border border-[#3A532D] rounded-md py-1.5 px-2 min-w-[350px] outline-none focus:outline focus:outline-2 focus:outline-[#80B546] focus:transition-all focus:duration-300"
                       type="text"
                     />
 
@@ -53,7 +67,7 @@ export const LoginPage = () => {
                     <label>Password</label>
                     <Field
                       name="password"
-                      className="bg-[#304130] outline- border border-[#3A532D] rounded-md py-1.5 px-2 min-w-[400px] outline-none focus:outline focus:outline-2 focus:outline-[#80B546] focus:transition-all focus:duration-300"
+                      className="bg-[#304130] outline- border border-[#3A532D] rounded-md py-1.5 px-2 min-w-[350px] outline-none focus:outline focus:outline-2 focus:outline-[#80B546] focus:transition-all focus:duration-300"
                       type="password"
                     />
 
@@ -76,7 +90,7 @@ export const LoginPage = () => {
           </Formik>
         </div>
       </div>
-      <div className="bg-black w-1/2 flex flex-col justify-center items-center min-h-screen"></div>
-    </div>
+      <LeftSide />
+    </>
   );
 };
