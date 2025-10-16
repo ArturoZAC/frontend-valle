@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+.styles-module_chatHeader__gaeOA .styles-module_avatar__afcc4 img,
+.styles-module_chatHeader__gaeOA .styles-module_avatar__afcc4 img {
+  background: #fff;
+}
+
+@font-face {
+  font-family: "font-futuro-italic";
+  src: url("https://api.logosperu.com.pe/public/fonts/futu_italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "font-futuro-normal";
+  src: url("../src/assets/fonts/comic/comic_serif.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+}
+
+.swp-slide--main {
+  height: calc(100dvh -  160px);
+}
+
+.text-shadow {
+}
+
+.text-shadow2 {
+    text-shadow: 
+    2px 2px 1px rgba(255, 255, 255, 0.4),
+    -2px -2px 1px rgba(255, 255, 255, 0.4),
+    2px -2px 1px rgba(255, 255, 255, 0.4),
+    -2px 2px 1px rgba(255, 255, 255, 0.4);
+  }
+
+.shadow-main {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 12px;
+}
+
+.effect_button {
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
+}
+
+.effect_button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 10px;
+  height: 10px;
+  border-radius: inherit;
+  scale: 0;
+  z-index: -1;
+  background-color: #267322;
+  transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.effect_button:hover::before {
+  scale: 5;
+}
+
+.effect_button:hover {
+  scale: 1.1;
+  box-shadow: 0 0px 20px rgba(193, 163, 98, 0.4);
+}
+
+.effect_button:active {
+  scale: 1;
+}
+
+.effect_button2::before {
+  transition-duration: 0.7s;
+}
+.effect_button2:hover::before {
+  scale: 10;
+}
+
+/* Estilos generales del scrollbar */
+::-webkit-scrollbar {
+  width: 12px; /* Ancho del scrollbar vertical */
+  height: 12px; /* Alto del scrollbar horizontal */
+}
+
+/* Estilo del track (la pista por donde se desliza el thumb) */
+::-webkit-scrollbar-track {
+  background: #fff; /* Color de fondo del track */
+  border-radius: 10px; /* Esquinas redondeadas */
+}
+
+/* Estilo del thumb (la parte deslizante del scrollbar) */
+::-webkit-scrollbar-thumb {
+  background-color: #004eb5; /* Color del thumb */
+}
+
+/* Estilo del thumb al pasar el cursor encima */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #003cb4; /* Cambiar el color del thumb al pasar el cursor */
+}
+
+/* Estilo del botón (arriba/abajo, izquierda/derecha) del scrollbar */
+::-webkit-scrollbar-button {
+  display: none; /* Ocultar los botones por defecto */
+}
+
+/* Estilo del corner (el área en la esquina entre el scrollbar vertical y horizontal) */
+::-webkit-scrollbar-corner {
+  background: #f0f0f0; /* Color del corner */
+}
