@@ -1,18 +1,8 @@
 import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 import { AuthProvider } from "../context/AuthProvider";
-
-import { Home } from "../components/public/Home";
-import { PublicLayout } from "../components/public/PublicLayout";
-
-import { AuthLayout } from "../components/auth/layout/AuthLayout";
-import { LoginPage } from "../components/auth/pages/login/LoginPage";
-
-import { AdminLayout } from "../components/admin/layouts/AdminLayout";
-import { DashboardPage } from "../components/admin/pages/dashboard/DashboardPage";
-import { ServicesPage } from "../components/admin/pages/services/ServicesPage";
-import { ContentList } from "../components/admin/pages/services/components/ContentList";
-import { CreatePage } from "../components/admin/pages/services/pages/CreatePage";
-import { UpdatePage } from "../components/admin/pages/services/pages/UpdatePage";
+import { AuthRoutes } from "./AuthRoutes";
+import { AdminRoutes } from "./AdminRoutes";
+import { PublicRoutes } from "./PublicRoutes";
 
 // import Cobertura from '../components/public/Cobertura'
 
@@ -21,30 +11,17 @@ export const Routing = (): JSX.Element => {
     <BrowserRouter basename="/landingpages/valleagricola">
       <AuthProvider>
         <Routes>
-          <Route path="/auth" element={<AuthLayout />}>
-            <Route path="login" element={<LoginPage />} />
+          {/* Auth */}
+          <Route path="/auth/*" element={<AuthRoutes />} />
 
-            <Route index element={<Navigate to={"/auth/login"} />} />
-          </Route>
+          {/* Admin */}
+          <Route path="/admin/*" element={<AdminRoutes />} />
 
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route path="dashboard" element={<DashboardPage />} />
-            <Route path="services" element={<ServicesPage />}>
-              <Route index element={<ContentList />} />
-              <Route path="create" element={<CreatePage />} />
-              <Route path="update/:id" element={<UpdatePage />} />
+          {/* Público */}
+          <Route path="/*" element={<PublicRoutes />} />
 
-              <Route path="*" element={<Navigate to={"/admin/services"} />} />
-            </Route>
-
-            <Route index element={<Navigate to={"/admin/dashboard"} />} />
-          </Route>
-
-          <Route path="/" element={<PublicLayout />}>
-            <Route index element={<Home />} />
-          </Route>
-
-          <Route path="*" element={<Navigate to={"/"} />} />
+          {/* Fallback */}
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>

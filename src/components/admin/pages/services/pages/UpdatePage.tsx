@@ -51,7 +51,7 @@ export const UpdatePage = () => {
     }
 
     await UpdateProductAction(id, formData);
-    navigate("/admin/services");
+    navigate("/admin/products");
   };
 
   if (!product) {
@@ -172,7 +172,7 @@ export const UpdatePage = () => {
 
                 <button
                   type="button"
-                  onClick={() => navigate("/admin/services")}
+                  onClick={() => navigate("/admin/products")}
                   className="bg-red-700 hover:bg-red-600 text-white py-3 px-5 rounded-lg font-semibold transition"
                 >
                   Cancelar

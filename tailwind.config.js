@@ -7,7 +7,15 @@ module.exports = withMT({
     "path-to-your-node_modules/@material-tailwind/react/theme/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    // screen: {
+    //   md: "768px",
+    //   lg: "1024px",
+    // },
     extend: {
+      screen: {
+        customMd: "768px",
+        customLg: "1024px",
+      },
       fontFamily: {
         futuroItalic: ["font-futuro-italic", "sans-serif"],
         futuroNormal: ["font-futuro-normal", "sans-serif"],

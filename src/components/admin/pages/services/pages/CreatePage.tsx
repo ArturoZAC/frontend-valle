@@ -31,7 +31,7 @@ export const CreatePage = () => {
 
     // try {
     await CreateProductAction(formData);
-    navigate("/admin/services");
+    navigate("/admin/products");
     // } catch (error) {
     //   console.error("Error al crear producto:", error);
     // }
@@ -59,7 +59,7 @@ export const CreatePage = () => {
                 htmlFor="image"
                 className="text-gray-300 font-medium text-lg mb-4"
               >
-                Imagen del servicio
+                Imagen del Producto
               </label>
 
               <div className="relative w-full border-2 border-dashed border-[#5F973E]/40 rounded-xl bg-[#131517] flex flex-col items-center justify-center p-6 hover:border-[#5F973E] transition">
@@ -119,7 +119,7 @@ export const CreatePage = () => {
                 <Field
                   id="name"
                   name="name"
-                  placeholder="Ingrese el nombre del servicio"
+                  placeholder="Ingrese el nombre del producto"
                   className="bg-[#131517] border border-[#5F973E]/30 rounded-lg px-4 py-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#5F973E] transition"
                 />
                 <ErrorMessage
@@ -141,7 +141,7 @@ export const CreatePage = () => {
                   as="textarea"
                   id="description"
                   name="description"
-                  placeholder="Ingrese la descripción del servicio"
+                  placeholder="Ingrese la descripción del producto"
                   rows={5}
                   className="bg-[#131517] border border-[#5F973E]/30 rounded-lg px-4 py-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#5F973E] transition resize-none"
                 />
@@ -157,12 +157,12 @@ export const CreatePage = () => {
                   type="submit"
                   className="bg-[#5F973E] hover:bg-[#6fa84d] text-white py-3 px-5 rounded-lg font-semibold transition"
                 >
-                  Crear servicio
+                  Crear Producto
                 </button>
 
                 <button
                   type="button"
-                  onClick={() => navigate("/admin/services")}
+                  onClick={() => navigate("/admin/products")}
                   className="bg-red-700 hover:bg-red-600 text-white py-3 px-5 rounded-lg font-semibold transition"
                 >
                   Cancelar
