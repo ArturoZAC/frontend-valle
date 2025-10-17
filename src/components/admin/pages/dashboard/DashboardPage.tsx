@@ -3,9 +3,9 @@ import { Header } from "../services/components/Header";
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../../../context/AuthProvider";
 import { getAllProductsAction } from "../../actions/getAllProducts.action";
-import { BsFillPlusCircleFill, BsThreeDotsVertical } from "react-icons/bs";
+import { BsFillPlusCircleFill } from "react-icons/bs";
 import { HiArchiveBox } from "react-icons/hi2";
-import { Menu, MenuButton, MenuDivider, MenuItem } from "@szhsin/react-menu";
+import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 
 export const DashboardPage = () => {
   const { user } = useContext(AuthContext);
@@ -83,7 +83,7 @@ export const DashboardPage = () => {
 
         {/* Botón de agregar producto */}
         <button
-          onClick={() => navigate("/admin/services/create")}
+          onClick={() => navigate("/admin/products/create")}
           className="flex items-center justify-center gap-x-2 px-4 py-3 bg-[#5F973E] rounded-lg hover:bg-[#6fa84a] transition-all font-medium text-white"
         >
           <BsFillPlusCircleFill size={20} />
