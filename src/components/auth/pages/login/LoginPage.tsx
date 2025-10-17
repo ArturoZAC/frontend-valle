@@ -31,7 +31,7 @@ export const LoginPage = () => {
 
   return (
     <>
-      <div className="bg-[#396739]  w-1/2 flex flex-col justify-center items-center min-h-screen">
+      <div className="bg-[#396739]  xl:w-1/2 w-full flex flex-col justify-center items-center min-h-screen px-4">
         <div className="flex justify-center mb-6">
           <img
             src={logo}
@@ -40,7 +40,7 @@ export const LoginPage = () => {
           />
         </div>
 
-        <div className="bg-[#253725] p-10 rounded-md border-[#3A532D] border flex flex-col gap-y-5">
+        <div className="bg-[#253725] p-10 rounded-md border-[#3A532D] border flex flex-col gap-y-5 w-full max-w-[500px]">
           <div className="flex flex-col">
             <p className="text-3xl font-bold text-[#8BC34B]">Iniciar Sesion</p>
             <p className="text-white-300">
@@ -63,7 +63,7 @@ export const LoginPage = () => {
                     </div>
                     <Field
                       name="email"
-                      className="bg-[#304130] outline- border border-[#3A532D] rounded-md py-1.5 px-2 min-w-[350px] outline-none focus:outline focus:outline-2 focus:outline-[#80B546] focus:transition-all focus:duration-300"
+                      className="bg-[#304130] outline- border border-[#3A532D] rounded-md py-1.5 px-2 outline-none focus:outline focus:outline-2 focus:outline-[#80B546] focus:transition-all focus:duration-300"
                       type="text"
                     />
 
@@ -80,7 +80,7 @@ export const LoginPage = () => {
                     </div>
                     <Field
                       name="password"
-                      className="bg-[#304130] outline- border border-[#3A532D] rounded-md py-1.5 px-2 min-w-[350px] outline-none focus:outline focus:outline-2 focus:outline-[#80B546] focus:transition-all focus:duration-300"
+                      className="bg-[#304130] outline- border border-[#3A532D] rounded-md py-1.5 px-2 outline-none focus:outline focus:outline-2 focus:outline-[#80B546] focus:transition-all focus:duration-300"
                       type="password"
                     />
 
