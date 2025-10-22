@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { redirectToWhatsApp } from "../../../utils/Wsp";
 import {
@@ -7,34 +7,42 @@ import {
   servicio3,
   servicio4,
 } from "../../shared/images";
+import { ProductsResponse } from "../../admin/interfaces/product.response";
+import { getAllProductsAction } from "../../admin/actions/getAllProducts.action";
 
 const ServiciosSection: React.FC = () => {
-  const servicios = [
-    {
-      image: `${servicio1}`,
-      title: "Productos Frescos",
-      description:
-        "Frutas y verduras frescas de la más alta calidad, directamente del campo a tu mesa.",
-    },
-    {
-      image: `${servicio2}`,
-      title: "Productos para Proceso Industrial",
-      description:
-        "Frutas y verduras destinadas a conservas, congelados, mermeladas y más.",
-    },
-    {
-      image: `${servicio3}`,
-      title: "Insumos Agrícolas Orgánicos",
-      description:
-        "Fertilizantes y bioestimulantes que mantienen cultivos saludables y amigables con el ambiente.",
-    },
-    {
-      image: `${servicio4}`,
-      title: "Comercialización Nacional e Internacional",
-      description:
-        "Distribuimos productos a nivel nacional y extranjero con estándares de calidad internacional.",
-    },
-  ];
+  const [services, setServices] = useState<ProductsResponse[]>([]);
+
+  useEffect(() => {
+    getAllProductsAction().then((data) => setServices(data));
+  }, []);
+
+  // const servicios = [
+  //   {
+  //     image: `${servicio1}`,
+  //     title: "Productos Frescos",
+  //     description:
+  //       "Frutas y verduras frescas de la más alta calidad, directamente del campo a tu mesa.",
+  //   },
+  //   {
+  //     image: `${servicio2}`,
+  //     title: "Productos para Proceso Industrial",
+  //     description:
+  //       "Frutas y verduras destinadas a conservas, congelados, mermeladas y más.",
+  //   },
+  //   {
+  //     image: `${servicio3}`,
+  //     title: "Insumos Agrícolas Orgánicos",
+  //     description:
+  //       "Fertilizantes y bioestimulantes que mantienen cultivos saludables y amigables con el ambiente.",
+  //   },
+  //   {
+  //     image: `${servicio4}`,
+  //     title: "Comercialización Nacional e Internacional",
+  //     description:
+  //       "Distribuimos productos a nivel nacional y extranjero con estándares de calidad internacional.",
+  //   },
+  // ];
 
   return (
     <section className="py-20 " id="servicios">
@@ -61,7 +69,7 @@ const ServiciosSection: React.FC = () => {
 
         {/* Services Grid */}
         <div className="grid gap-8 md:grid-cols-2">
-          {servicios.map((servicio, index) => (
+          {services.map((servicio, index) => (
             <div
               key={index}
               className="relative overflow-hidden transition-all duration-500 bg-white shadow-lg group rounded-3xl hover:shadow-2xl"
@@ -70,7 +78,7 @@ const ServiciosSection: React.FC = () => {
               <div className="relative overflow-hidden h-80">
                 <img
                   src={servicio.image}
-                  alt={servicio.title}
+                  alt={servicio.name}
                   className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
                 />
                 {/* Gradient Overlay */}
@@ -85,7 +93,7 @@ const ServiciosSection: React.FC = () => {
               {/* Content */}
               <div className="p-8">
                 <h3 className="mb-3 text-2xl font-bold text-gray-800 transition-colors group-hover:text-primary-main">
-                  {servicio.title}
+                  {servicio.name}
                 </h3>
                 <p className="mb-6 leading-relaxed text-gray-600">
                   {servicio.description}

@@ -33,11 +33,11 @@ const Header = () => {
               <span>(+51) 997 125 302 </span>
             </a> */}
             <a
-              href="mailto:consultas@dominio.com"
+              href="mailto:informacion@valleagricolaperu.com"
               className="flex items-center gap-2 transition hover:text-gray-300"
             >
               <Mail size={16} />
-              <span>consultas@dominio.com</span>
+              <span>informacion@valleagricolaperu.com</span>
             </a>
           </div>
 
@@ -162,11 +162,11 @@ const Header = () => {
                   <span>(+51) 997 125 302 </span>
                 </a>
                 <a
-                  href="mailto:consultas@dominio.com"
+                  href="mailto:informacion@valleagricolaperu.com"
                   className="flex items-center gap-2 text-gray-700"
                 >
                   <Mail size={16} />
-                  <span>consultas@dominio.com</span>
+                  <span>informacion@valleagricolaperu.com</span>
                 </a>
               </div>
 
